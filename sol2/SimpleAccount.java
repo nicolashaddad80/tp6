@@ -23,12 +23,6 @@ public class SimpleAccount {
    */
   protected double solde;
 
-  /**
-   * Le numero du Compte Simple
-   */
-  protected final int numAccount;
-
-
   /** 
    *  Constructeur de notre Compte Simple (solde initial mis  a zero)
    *  @param a_Owner : La Personne propritaire de notre Compte Simple
@@ -36,15 +30,6 @@ public class SimpleAccount {
   public  SimpleAccount(Person a_Owner) {
     this.owner=a_Owner;
     this.solde=0;
-    this.numAccount=Bank.getNewAccountNumber();
-  }
-
-  /**
-   *  Methode qui permet d'obtenir le numero de notre Compte Simple
-   *  @return : le numero de notre Compte Simple
-   */
-  public int getAccountNum() {
-    return this.numAccount;
   }
 
   /** 

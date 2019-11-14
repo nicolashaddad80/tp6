@@ -34,13 +34,14 @@ public class Bank {
    *  Liste des Comptes de la Banque
    */
   private SimpleAccount [] accountList;
-  private int[] accountnumbers;
+  private int[] accountNumbers;
 
   /**
    *  Constructeur de notre Banque
    */
   public Bank() {
     this.accountList=new SimpleAccount[0];
+    this.accountNumbers=new int[0];
   }
 
   /**
@@ -56,9 +57,13 @@ public class Bank {
    */
   public void openSimpleAccount(Person a_Owner) {
     SimpleAccount [] l_AccountList = new SimpleAccount[this.getNbAccounts()+1];
+    int[] l_accountNumbers = new int[this.getNbAccounts()+1];
     System.arraycopy(this.accountList,0,l_AccountList,0,this.getNbAccounts());
+    System.arraycopy(this.accountNumbers,0,l_accountNumbers,0,this.getNbAccounts());
     l_AccountList[this.getNbAccounts()]=new SimpleAccount(a_Owner);
+    l_accountNumbers[this.getNbAccounts()]=this.getNewAccountNumber();
     this.accountList=l_AccountList;
+    this.accountNumbers=l_accountNumbers;
   }
 
   /**
@@ -67,9 +72,13 @@ public class Bank {
    */
   public void openCheckingAccount(Person a_Owner) {
     SimpleAccount [] l_AccountList = new SimpleAccount[this.getNbAccounts()+1];
+    int[] l_accountNumbers = new int[this.getNbAccounts()+1];
     System.arraycopy(this.accountList,0,l_AccountList,0,this.getNbAccounts());
+    System.arraycopy(this.accountNumbers,0,l_accountNumbers,0,this.getNbAccounts());
     l_AccountList[this.getNbAccounts()]=new CheckingAccount(a_Owner);
+    l_accountNumbers[this.getNbAccounts()]=this.getNewAccountNumber();
     this.accountList=l_AccountList;
+    this.accountNumbers=l_accountNumbers;
   }
 
   /**
