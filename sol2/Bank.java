@@ -34,6 +34,7 @@ public class Bank {
    *  Liste des Comptes de la Banque
    */
   private SimpleAccount [] accountList;
+  private int[] accountnumbers;
 
   /**
    *  Constructeur de notre Banque
