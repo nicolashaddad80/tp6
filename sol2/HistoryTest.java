@@ -56,4 +56,40 @@ public class HistoryTest {
         assertEquals("[\n1, 10.0\n]", this.hist0.getCredit().toString());
 
     }
+
+    @Test
+    public void getOperation(){
+        this.hist0.addOperation(10);
+        this.hist0.addOperation(-20);
+
+        assertEquals(10, this.hist0.getOperation(1),e);
+        assertEquals(-20, this.hist0.getOperation(2),e);
+    }
+
+    @Test(expected = java.lang.AssertionError.class)
+    public void getOperationIllegal1(){
+        this.hist0.addOperation(10);
+        this.hist0.addOperation(-20);
+        this.hist0.getOperation(3);
+    }
+
+    @Test(expected = java.lang.AssertionError.class)
+    public void getOperationIllegal2(){
+        this.hist0.getOperation(1);
+    }
+
+    @Test(expected = java.lang.AssertionError.class)
+    public void getOperationIllegal3(){
+        this.hist0.addOperation(10);
+        this.hist0.addOperation(-20);
+        this.hist0.getOperation(0);
+    }
+
+    @Test(expected = java.lang.AssertionError.class)
+    public void getOperationIllegal4(){
+        this.hist0.addOperation(10);
+        this.hist0.addOperation(-20);
+        this.hist0.getOperation(-1);
+    }
+
 }

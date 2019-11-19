@@ -7,16 +7,18 @@ import static org.junit.Assert.assertNotNull;
 
 public class SimpleAccountTest {
 
-    private final static double e = 0.0001;
-    private SimpleAccount  acc1;
-    private Person p0;
-    String nom="HADDAD";
-    String prenom="Nicolas";
-    Gender genre=Gender.MALE;
+    protected final  double e = 0.0001;
+
+    private String nom="HADDAD";
+    private String prenom="Nicolas";
+    private Gender genre=Gender.MALE;
+
+    protected SimpleAccount  acc1;
+    protected Person p0 = new Person(this.nom,this.prenom,this.genre);;
 
     @Before
     public void setUp() {
-        this.p0 = new Person(nom,prenom,genre);
+
         this.acc1= new SimpleAccount(this.p0);
     }
 
@@ -36,8 +38,9 @@ public class SimpleAccountTest {
 
     @Test
     public void testDebit(){
+        this.acc1.credit(60);
         this.acc1.debit(25);
-        assertEquals(-25, this.acc1.getAmount(),e);
+        assertEquals(35, this.acc1.getAmount(),e);
     }
 
     @Test

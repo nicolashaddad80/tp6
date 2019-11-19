@@ -41,20 +41,22 @@ public class CheckingAccount extends SimpleAccount {
     return this.accountStatement.getDebit().toString();
   }
 
-  @Override
+
   /**
    *  Methode qui permet de crediter notre Compte Simple d'une somme donnee
    *  @param a_Amount : la somme a crediter sur notre Compte Simple
    */
+  @Override
   public void credit(double a_Amount) {
     super.credit(a_Amount);
     this.accountStatement.addOperation(a_Amount);
   }
-  @Override
+
   /**
    *  Methode qui permet de debiter une somme donnee de notre Compte Simple
    *  @param a_Amount : la somme a debiter de notre Compte Simple
    */
+  @Override
   public void debit(double a_Amount) {
     super.debit(a_Amount);
     this.accountStatement.addOperation(-a_Amount);

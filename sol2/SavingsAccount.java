@@ -35,12 +35,13 @@ public class SavingsAccount extends CheckingAccount {
 
   @Override
   public void credit(double a_Amount) {
-    if ((this.getAmount() + a_Amount) <= MAXAMOUNT){
+    assert (this.getAmount() + a_Amount) <= MAXAMOUNT : "Cannot Credit this Amount due to Maximum Amount will not be respected";
+   // if ((this.getAmount() + a_Amount) <= MAXAMOUNT){
       super.credit(a_Amount);
-    }
+  /*  }
     else {
       System.out.println("Cannot Credit this Amount due to Maximum Amount will not be respected");
-    }
+    }*/
   }
 
   /**
@@ -50,12 +51,13 @@ public class SavingsAccount extends CheckingAccount {
 
   @Override
   public void debit(double a_Amount) {
-    if(this.getAmount()-a_Amount>=0){
+    assert this.getAmount()-a_Amount>=0: "No enough Credit";
+  //  if(this.getAmount()-a_Amount>=0){
       super.debit(a_Amount);
-    }
+   /* }
     else {
       System.out.println("No enough Credit");
-    }
+    }*/
   }
 
   /** 
