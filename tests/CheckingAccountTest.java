@@ -1,12 +1,13 @@
-package fr.cnam.tp6.sol2;
+package fr.cnam.tp6.tests;
 
+import fr.cnam.tp6.CheckingAccount;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class CheckingAccountTest extends SimpleAccountTest {
-    private void executeOrders(){
+    private void executeOrders() {
         this.acc1.credit(60);
         this.acc1.debit(20);
         this.acc1.credit(100);
@@ -15,15 +16,15 @@ public class CheckingAccountTest extends SimpleAccountTest {
 
     @Override
     @Before
-    public void setUp()  {
-        this.acc1= new CheckingAccount(this.p0);
+    public void setUp() {
+        this.acc1 = new CheckingAccount(this.p0);
     }
 
 
     @Test
     public void getAccountStatement() {
         executeOrders();
-        assertEquals("[\n1, 60.0\n2, -20.0\n3, 100.0\n4, -50.0\n]",((CheckingAccount) this.acc1).getAccountStatement());
+        assertEquals("[\n1, 60.0\n2, -20.0\n3, 100.0\n4, -50.0\n]", ((CheckingAccount) this.acc1).getAccountStatement());
     }
 
     @Test
